@@ -1,4 +1,4 @@
-package ccom.darkcommit.parking_control;
+package ccom.darkcommit.parking_control.services_test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
