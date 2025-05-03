@@ -77,7 +77,7 @@ spring.datasource.username=postgres
 spring.jpa.hibernate.ddl-auto=update
 spring.jpa.show-sql=true
 spring.jpa.properties.hibernate.format_sql=true
-
+```
 
 > ⚠️ Substitua os dados acima conforme suas credenciais locais.
 
