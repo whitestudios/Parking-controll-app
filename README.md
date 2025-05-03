@@ -38,7 +38,7 @@ A **Parking Control Application** é uma API REST construída com **Spring Boot*
 ## 📁 Estrutura do Projeto
 
 
-
+```
 src/main/java/com/darkcommit/parking_control/
 ├── controllers/ # Controladores REST (ex: ParkingSpotController.java)
 ├── dtos/ # Data Transfer Objects para validação de requisições
@@ -46,7 +46,7 @@ src/main/java/com/darkcommit/parking_control/
 ├── repositories/ # Repositórios JPA para operações de persistência
 ├── services/ # Camada de lógica de negócio (ex: ParkingSpotService.java)
 └── ParkingControlApplication.java # Ponto de entrada da aplicação
-
+```
 
 
 ---
