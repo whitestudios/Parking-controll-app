@@ -15,6 +15,9 @@ import ccom.darkcommit.parking_control.services.ParkingSpotService;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
 
 
 @RestController
@@ -24,14 +27,12 @@ public class ParkingSpotController {
 
     private final ParkingSpotService parkingSpotService;
 
-    @PostMapping
+
+    @PostMapping("/create")
     public ResponseEntity<ParkingSpotModel> postParkingSpots(@RequestBody @Valid ParkingSpotDto parkingSpot) {
-        // Exists by plate car?
-        // Exists by parking spot number?
-        // Exists by apartment block and block?
         return ResponseEntity.status(HttpStatus.CREATED).body(parkingSpotService.create(parkingSpot));
     }
-    
+
     @GetMapping
     public ResponseEntity<List<ParkingSpotModel>> getParkingSpots() {
         return ResponseEntity.ok().body(parkingSpotService.getAll());
@@ -41,7 +42,19 @@ public class ParkingSpotController {
     public ResponseEntity<ParkingSpotModel> getParkingSpotById(@PathVariable UUID id) {
         return ResponseEntity.ok().body(parkingSpotService.getByUuid(id));
     }
-    
-    
-    
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteParkingSport(@PathVariable UUID id){
+        parkingSpotService.deleteByUuid(id);
+        return ResponseEntity.ok().body("Parking Spot Delete with succes");
+    }
+
+    @PutMapping("edit/{id}")
+    public ResponseEntity<ParkingSpotModel> putMethodName(@PathVariable UUID id, @RequestBody ParkingSpotDto entity) {
+        return ResponseEntity.ok().body(parkingSpotService.update(entity, id));
+    }
+
+
+
+
 }

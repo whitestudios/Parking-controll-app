@@ -20,7 +20,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Table(name = "TB_PARKING_SPOT")
 public class ParkingSpotModel implements Serializable{
-    private final long serialVersionUID = 1L; 
+    private final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -49,7 +49,7 @@ public class ParkingSpotModel implements Serializable{
 
     @Column(nullable = false, length = 30)
     private String apartment;
-    
+
     @Column(nullable = false, length = 30)
     private String block;
 }
