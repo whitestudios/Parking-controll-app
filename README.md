@@ -1,5 +1,5 @@
 
-```markdown
+
 # 🚗 Parking Control Application
 
 ## 📌 Visão Geral
@@ -37,7 +37,7 @@ A **Parking Control Application** é uma API REST construída com **Spring Boot*
 
 ## 📁 Estrutura do Projeto
 
-```
+
 
 src/main/java/com/darkcommit/parking_control/
 ├── controllers/ # Controladores REST (ex: ParkingSpotController.java)
@@ -47,7 +47,7 @@ src/main/java/com/darkcommit/parking_control/
 ├── services/ # Camada de lógica de negócio (ex: ParkingSpotService.java)
 └── ParkingControlApplication.java # Ponto de entrada da aplicação
 
-````
+
 
 ---
 
@@ -77,7 +77,7 @@ spring.datasource.username=postgres
 spring.jpa.hibernate.ddl-auto=update
 spring.jpa.show-sql=true
 spring.jpa.properties.hibernate.format_sql=true
-````
+
 
 > ⚠️ Substitua os dados acima conforme suas credenciais locais.
 
