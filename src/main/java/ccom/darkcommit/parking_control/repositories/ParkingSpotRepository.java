@@ -9,5 +9,7 @@ import ccom.darkcommit.parking_control.models.ParkingSpotModel;
 
 @Repository
 public interface ParkingSpotRepository extends JpaRepository<ParkingSpotModel, UUID>{
-
+    boolean existsByParkingSpotNumber(String parkingSpotNumber);
+    boolean existsByLicensePlateCar(String LicensePlateCar);
+    boolean existsByApartmentAndBlock(String apartment, String block);
 }

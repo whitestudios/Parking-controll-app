@@ -13,6 +13,7 @@ import org.springframework.web.server.ResponseStatusException;
 import ccom.darkcommit.parking_control.dtos.ParkingSpotDto;
 import ccom.darkcommit.parking_control.models.ParkingSpotModel;
 import ccom.darkcommit.parking_control.repositories.ParkingSpotRepository;
+import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
@@ -20,7 +21,20 @@ import lombok.AllArgsConstructor;
 public class ParkingSpotService {
     private final ParkingSpotRepository parkingSpotRepository;
 
+    @Transactional
     public ParkingSpotModel create(ParkingSpotDto parkDto){
+        if (parkingSpotRepository.existsByLicensePlateCar(parkDto.licensePlateCar())){
+            throw new IllegalStateException("License plate already in use! ");
+        }
+        
+        if (parkingSpotRepository.existsByParkingSpotNumber(parkDto.parkingSpotNumber())){
+            throw new IllegalStateException("Parking spot number already in use");
+        }
+        
+        if (parkingSpotRepository.existsByApartmentAndBlock(parkDto.apartment(), parkDto.block())){
+            throw new IllegalStateException("Parking spot already registered for this apartment/block! ");
+        }
+
         ParkingSpotModel p = new ParkingSpotModel();
         BeanUtils.copyProperties(parkDto, p);
         p.setRegistrationDate(LocalDateTime.now(ZoneId.of("UTC")));
@@ -43,5 +57,5 @@ public class ParkingSpotService {
         parkingSpotRepository.deleteById(id);
         return true;
     }
-    
+
 }

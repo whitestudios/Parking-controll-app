@@ -26,6 +26,9 @@ public class ParkingSpotController {
 
     @PostMapping
     public ResponseEntity<ParkingSpotModel> postParkingSpots(@RequestBody @Valid ParkingSpotDto parkingSpot) {
+        // Exists by plate car?
+        // Exists by parking spot number?
+        // Exists by apartment block and block?
         return ResponseEntity.status(HttpStatus.CREATED).body(parkingSpotService.create(parkingSpot));
     }
     
